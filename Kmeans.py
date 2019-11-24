@@ -9,8 +9,8 @@ import numpy as np
 import pandas as pd
 import random
 import warnings
-from Assigment1.DBI import DBI
-from Assigment1.FCM import FCM
+from DBI import DBI
+from FCM import FCM
 warnings.filterwarnings("ignore")
 import copy
 
