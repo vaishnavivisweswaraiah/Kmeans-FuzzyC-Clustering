@@ -26,17 +26,14 @@ class DBI:
             for clusterid in self.clusters.keys():
                 if centroidindex==clusterid:
                     self.s_IntraclusterDistance[clusterid]=np.average(np.linalg.norm(np.array(self.centroids[centroidindex])-np.array(self.clusters[clusterid]),axis=1))
-                    #print(np.array(self.centroids[centroidindex]))
-                    #print("clsters",np.array(self.clusters[clusterid]))
-                    #print(self.s_IntraclusterDistance[clusterid])
-        #print(self.s_IntraclusterDistance)
+   
     'Calculating inter cluster distances'
     def inter_Cluster_Distance(self):
         for cluster_pair1,cluster_pair2 in itertools.product(self.centroids,self.centroids):
             if cluster_pair1!=cluster_pair2:
                 euclidean_inter_distances=np.linalg.norm(np.array(self.centroids[cluster_pair1])-np.array(self.centroids[cluster_pair2]))
                 self.d_InterclusterDistance[(cluster_pair1,cluster_pair2)]=euclidean_inter_distances
-        #print(self.d_InterclusterDistance)
+        
     'Calculating DBI index by calling inter and intra cluster distance calculation modules'              
     def validityMeasure_DaviesBouldin_Index(self):
         
